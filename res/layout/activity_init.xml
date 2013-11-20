@@ -34,7 +34,7 @@
         android:layout_below="@+id/textViewMsg"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="47dp"
-        android:onClick="readSetting"
+        android:onClick="onClicked"
         android:text="Cancel" />
 
 </RelativeLayout>

@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 public class InitActivity extends Activity {
 	
+	public static String EXTRA_MESSAGE = "com.example.FoodServing.MESSAGE";
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -60,8 +62,9 @@ public class InitActivity extends Activity {
 		return true;
 	}
 	
-	public void readSetting(View view) {
-		
+	public void onClicked(View view) {
+		EXTRA_MESSAGE = "done";
+		finish();
 	}
 
 }

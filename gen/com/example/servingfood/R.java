@@ -31,26 +31,24 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f0a000d;
-        public static final int button2=0x7f0a0004;
-        public static final int button3=0x7f0a0002;
-        public static final int button4=0x7f0a0003;
+        public static final int button2=0x7f0a0003;
+        public static final int button3=0x7f0a0000;
+        public static final int button4=0x7f0a0002;
         public static final int buttonCancel=0x7f0a0001;
-        public static final int editTextIP=0x7f0a0007;
-        public static final int editTextName=0x7f0a0000;
-        public static final int editTextPort=0x7f0a0009;
-        public static final int editTextcomment=0x7f0a0008;
-        public static final int progressBar1=0x7f0a0005;
-        public static final int textView2=0x7f0a000a;
-        public static final int textView3=0x7f0a000b;
+        public static final int editTextIP=0x7f0a0006;
+        public static final int editTextName=0x7f0a000a;
+        public static final int editTextPort=0x7f0a0008;
+        public static final int editTextcomment=0x7f0a000b;
+        public static final int progressBar1=0x7f0a0004;
+        public static final int textView2=0x7f0a0009;
+        public static final int textView3=0x7f0a0007;
         public static final int textView4=0x7f0a000c;
-        public static final int textViewMsg=0x7f0a0006;
+        public static final int textViewMsg=0x7f0a0005;
     }
     public static final class layout {
-        public static final int activity_dialog=0x7f030000;
-        public static final int activity_display_message=0x7f030001;
-        public static final int activity_first=0x7f030002;
-        public static final int activity_init=0x7f030003;
-        public static final int activity_setting=0x7f030004;
+        public static final int activity_first=0x7f030000;
+        public static final int activity_init=0x7f030001;
+        public static final int activity_setting=0x7f030002;
     }
     public static final class menu {
         public static final int dialog=0x7f090000;

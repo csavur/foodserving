@@ -8,12 +8,13 @@ import android.content.Intent;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.servingfood.BackgroundTask;
 
 public class FirstActivity extends Activity {
 	
-	public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
+	public final static String EXTRA_MESSAGE = "com.example.FoodServing.MESSAGE";
 
 	
     @Override
@@ -21,11 +22,11 @@ public class FirstActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
         
-    	Intent intent = new Intent(this, InitActivity.class);
- 	   // EditText editText = (EditText) findViewById(R.id.edit_message);
- 	   // String message = editText.getText().toString();
-     	intent.putExtra(EXTRA_MESSAGE, "Trying to connect the robot...");
- 	    startActivity(intent);
+    	//Intent intent = new Intent(this, InitActivity.class);
+ 	    // EditText editText = (EditText) findViewById(R.id.edit_message);
+ 	    // String message = editText.getText().toString();
+     	//intent.putExtra(EXTRA_MESSAGE, "Trying to connect the robot...");
+ 	    //startActivity(intent);
     }
 
 
@@ -56,23 +57,27 @@ public class FirstActivity extends Activity {
     	AlertDialog dialog = builder.create();
     	dialog.show();
 	}
-    
-    /** Called when the user clicks the Send button */
-    public void sendMessage(View view) {
-        // Do something in response to button
-    	
-
-    	
-    	
-    	Intent intent = new Intent(this, SettingActivity.class);
-	   // EditText editText = (EditText) findViewById(R.id.edit_message);
-	   // String message = editText.getText().toString();
-    	intent.putExtra(EXTRA_MESSAGE, "Celal");
-	    startActivity(intent);
-    }
    
-    public void testConnection(View view) {
-    	new BackgroundTask().execute("Selam");
+    public void onClickedTable1(View view) {
+    	Intent intent = new Intent(this, InitActivity.class);
+    	intent.putExtra(EXTRA_MESSAGE, "Robot has been sent Table 1 \n Please Wait...");
+    	startActivity(intent);
+    	
+	}
+    public void onClickedTable2(View view) {
+    	Intent intent = new Intent(this, InitActivity.class);
+    	intent.putExtra(EXTRA_MESSAGE, "Robot has been sent Table 2 \n Please Wait...");
+    	startActivity(intent);
+	}
+    public void onClickedTable3(View view) {
+    	Intent intent = new Intent(this, InitActivity.class);
+    	intent.putExtra(EXTRA_MESSAGE, "Robot has been sent Table 3 \n Please Wait...");
+    	startActivity(intent);
+	}
+    public void onClickedTable4(View view) {
+    	Intent intent = new Intent(this, InitActivity.class);
+    	intent.putExtra(EXTRA_MESSAGE, "Robot has been sent Table 4 \n Please Wait...");
+    	startActivity(intent);
 	}
 	
 }

@@ -43,7 +43,7 @@ class BackgroundTask  extends AsyncTask<String, Void, String> {
     private void enableConnection()
     {
         try {
-            initConnection("129.21.144.153");
+            initConnection("192.168.1.11");
         } catch (IOException e) {
            System.out.println("when trying to enable connection, Error has been accored");
         }

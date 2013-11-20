@@ -12,9 +12,13 @@
     <string name="table7">Table 7</string>
     <string name="table8">Table 8</string>
     <string name="edit_message">You are changing the setting</string>
-    <string name="button_send">Save</string>
+    <string name="button_send">Send</string>
     <string name="title_activity_display_message">My message</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_dialog">Dialog</string>
+    <string name="title_activity_init">Food Serving Robot</string>
+    <string name="init_message">msg</string>
+    <string name="title_activity_setting">SettingActivity</string>
+    <string name="button_save">Save</string>
 
 </resources>

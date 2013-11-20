@@ -1,0 +1,49 @@
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+  	android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp" >
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="160dp"
+        android:layout_height="120dp"
+        android:layout_alignRight="@+id/buttonCancel"
+        android:layout_below="@+id/buttonCancel"
+        android:layout_marginTop="37dp"
+        android:text="@string/table3" 
+        android:onClick="sendMessage"/>
+
+    <Button
+        android:id="@+id/button4"
+  		android:layout_width="160dp"
+        android:layout_height="120dp"
+        android:layout_alignBaseline="@+id/button3"
+        android:layout_alignBottom="@+id/button3"
+        android:layout_alignLeft="@+id/button2"
+        android:text="@string/table4" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="160dp"
+        android:layout_height="120dp"
+        android:layout_above="@+id/button3"
+        android:layout_marginLeft="48dp"
+        android:layout_toRightOf="@+id/buttonCancel"
+        android:text="@string/table2"
+        android:onClick="testConnection" />
+
+    <Button
+        android:id="@+id/buttonCancel"
+        android:layout_width="160dp"
+        android:layout_height="120dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="99dp"
+        android:layout_marginTop="236dp"
+        android:text="@string/table1"
+        android:onClick="testConnection" />
+ 
+</RelativeLayout>

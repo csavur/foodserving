@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class InitActivity extends Activity {
 	
@@ -30,6 +31,14 @@ public class InitActivity extends Activity {
 
 	}
 
+	@Override
+	public void onBackPressed() {
+		// TODO Auto-generated method stub
+		
+		Toast.makeText(this, "You cannot go back until previous task is done!!!", 3).show();
+
+		//super.onBackPressed();
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

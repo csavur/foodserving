@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.InetAddress;
 import java.net.Socket;
 
 import android.provider.ContactsContract.Contacts.Data;
@@ -14,7 +15,7 @@ public class Connection implements Runnable {
 	private Socket socket;
 	private DataOutputStream out;
 	private BufferedReader in;
-	private boolean sendDataFlag = false;
+	private boolean isOutDataReady = false;
 	private FirstActivity ui;
 
 	private String ip;
@@ -28,53 +29,82 @@ public class Connection implements Runnable {
 	}
 	
 	public void strt() {
-		
-	
-		
+		System.out.println("Thread Start");
 		thread.start();
+	}
+	
+	public void connect() {
+		
+		try {
+//			
+//			Runtime runtime = Runtime.getRuntime();
+//			Process proc = runtime.exec("ping " + ip + " " + port);
+//			proc.waitFor();
+//			int exit = proc.exitValue();
+//			
+//			if (exit == 0) { // normal exit
+//				ui.showWarning();
+//			}
+			
+			socket = new Socket( ip, port );
+		
+	        out = new DataOutputStream(socket.getOutputStream());
+	        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		} catch (Exception e) {
+			
+		
+			e.printStackTrace();
+		} 
 	}
 	
 	@Override
 	public void run() {
-	
-		try {
-			socket = new Socket( ip, port );
-	        out = new DataOutputStream(socket.getOutputStream());
-	        in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-		} catch (Exception e) {
-			e.printStackTrace();
-		} 
 		
+		connect();
+	
 		while (true) {
+			
 			inData = null;
+				
+			if (isOutDataReady) {
+				sendDatatoServer();
+			}
 			
 			try {
-				inData = in.readLine();
+				if(in.ready()) {
+					inData = in.readLine();
+				}
 			} catch (IOException e) {
 				System.err.println("celal there is a error during reading");
 			}
 			
 			if (inData != null) {
-				ui.showMessage(inData);
+				if(inData.trim().length() != 0) {
+					ui.showMessage(inData);
+				}
 			}
 			
-//			try {
-//				thread.sleep(100);
-//			} catch (InterruptedException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
 			
-//			// Check the flag If there is a request for sending data	
-//			if (sendDataFlag) {
-//				try { 
-//		            out.writeBytes(outData);
-//		            sendDataFlag = false;
-//		        } catch (IOException e) {
-//		        	System.out.println("During sending data to server error has been accure");
-//		        }
-//			}
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
+			System.out.println("listening server!!!");
+		}
+	}
+	
+	private void sendDatatoServer()
+	{
+		try {
+			out.writeBytes(outData);
+			System.out.println("Sending data!!! :" + outData);
+			isOutDataReady = false;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
@@ -84,6 +114,7 @@ public class Connection implements Runnable {
 
 	public void setOutData(String outData) {
 		this.outData = outData;
+		isOutDataReady = true;
 	}
 
 	public String getIp() {
@@ -108,6 +139,10 @@ public class Connection implements Runnable {
 
 	public void setData(String data) {
 		this.inData = data;
+	}
+	
+	public boolean isConnected() {
+		return socket.isConnected();
 	}
 
 }

@@ -32,11 +32,8 @@ public class InitActivity extends Activity {
 	}
 
 	@Override
-	public void onBackPressed() {
-		// TODO Auto-generated method stub
-		
+	public void onBackPressed() {		
 		Toast.makeText(this, "You cannot go back until previous task is done!!!", 3).show();
-
 		//super.onBackPressed();
 	}
 
@@ -50,23 +47,12 @@ public class InitActivity extends Activity {
 	
 	private boolean tryToConnect2Robot() {
 		
-		
 		SharedPreferences preferences = getSharedPreferences("SETTING_FILE", Context.MODE_PRIVATE);
 		SharedPreferences.Editor   editor = preferences.edit();
 		editor.putString("name", "my Robot");
 		editor.putString("ip", "192.168.2.1");
 		editor.putString("port","8888");
 		editor.commit();
-
-		
-
-//		SharedPreferences prfs = getSharedPreferences("SETTING_FILE", Context.MODE_PRIVATE);
-//		
-//	
-//	    String Astatus = prfs.getString("name", "");
-//	    String Astatus2 = prfs.getString("ip", "");
-//	    String Astatus3 = prfs.getString("port", "");
-		
 		
 		return true;
 	}

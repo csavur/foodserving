@@ -4,10 +4,8 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.InetAddress;
 import java.net.Socket;
 
-import android.provider.ContactsContract.Contacts.Data;
 
 public class Connection implements Runnable {
 	
@@ -36,16 +34,6 @@ public class Connection implements Runnable {
 	public void connect() {
 		
 		try {
-//			
-//			Runtime runtime = Runtime.getRuntime();
-//			Process proc = runtime.exec("ping " + ip + " " + port);
-//			proc.waitFor();
-//			int exit = proc.exitValue();
-//			
-//			if (exit == 0) { // normal exit
-//				ui.showWarning();
-//			}
-			
 			socket = new Socket( ip, port );
 		
 	        out = new DataOutputStream(socket.getOutputStream());

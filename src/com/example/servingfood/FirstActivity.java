@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -25,20 +26,8 @@ public class FirstActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_first);
-
-
+		
 		con = new Connection(this);
-
-		con.setIp("172.20.10.7");
-		con.setPort(8080);
-
-
-		//Intent intent = new Intent(this, InitActivity.class);
-		// EditText editText = (EditText) findViewById(R.id.edit_message);
-		// String message = editText.getText().toString();
-		//intent.putExtra(EXTRA_MESSAGE, "Trying to connect the robot...");
-		//startActivity(intent);
-
 	}
 
 
@@ -73,7 +62,14 @@ public class FirstActivity extends Activity {
 
 	public void onClickedConnect(View view) {
 		
-		//showWarning();
+		
+	    SharedPreferences settings = getSharedPreferences( "SETTING_FILE" , 0);
+	    String ip = settings.getString("ip", "null");
+	    String port = settings.getString("port", "null");
+		
+		con.setIp(ip);
+		con.setPort(Integer.parseInt(port));
+		
 		con.strt();
 		Button button = (Button) findViewById(R.id.button5);
 		button.setVisibility(View.INVISIBLE);
@@ -104,6 +100,11 @@ public class FirstActivity extends Activity {
 		intent.putExtra(EXTRA_MESSAGE, "Robot has been sent Table 4 Please Wait...");
 		startActivityForResult(intent, code);
     	con.setOutData("4\n");
+	}
+	
+	public void onClickedSetting( View view) {
+		Intent intent = new Intent(this, SettingActivity.class);
+		startActivity(intent);
 	}
 
 	public void showMessage(String msg) {

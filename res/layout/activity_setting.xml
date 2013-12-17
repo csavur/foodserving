@@ -36,16 +36,6 @@
         android:layout_toRightOf="@+id/textView3"
         android:ems="10" />
 
-    <Button
-        android:id="@+id/buttonCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/editTextcomment"
-        android:layout_marginRight="56dp"
-        android:layout_marginTop="17dp"
-        android:text="@string/button_save" />
-
     <EditText
         android:id="@+id/editTextPort"
         android:layout_width="wrap_content"
@@ -64,29 +54,7 @@
         android:layout_below="@+id/editTextName"
         android:layout_marginTop="15dp"
         android:ems="10"
-        android:inputType="number" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/textViewMsg"
-        android:layout_below="@+id/editTextPort"
-        android:layout_marginTop="48dp"
-        android:text="Note"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <EditText
-        android:id="@+id/editTextcomment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_alignLeft="@+id/editTextPort"
-        android:ems="10"
-        android:inputType="textMultiLine" >
-
-        <requestFocus />
-    </EditText>
+        android:inputType="textPostalAddress|number" />
 
     <TextView
         android:id="@+id/textView2"
@@ -96,5 +64,16 @@
         android:layout_alignLeft="@+id/textViewMsg"
         android:text="Ip Adress"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/buttonCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/editTextPort"
+        android:layout_marginRight="73dp"
+        android:layout_marginTop="24dp"
+        android:onClick="save"
+        android:text="@string/button_save" />
 
 </RelativeLayout>

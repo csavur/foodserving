@@ -27,7 +27,7 @@ public class InitActivity extends Activity {
 	    TextView text = (TextView) findViewById(R.id.textViewMsg);
 	    text.setText(message);
 
-		tryToConnect2Robot();
+		//tryToConnect2Robot();
 
 	}
 
@@ -50,8 +50,8 @@ public class InitActivity extends Activity {
 		SharedPreferences preferences = getSharedPreferences("SETTING_FILE", Context.MODE_PRIVATE);
 		SharedPreferences.Editor   editor = preferences.edit();
 		editor.putString("name", "my Robot");
-		editor.putString("ip", "192.168.2.1");
-		editor.putString("port","8888");
+		editor.putString("ip", "192.168.1.12");
+		editor.putString("port","8080");
 		editor.commit();
 		
 		return true;
